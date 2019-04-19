@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>默认登录页面</title>
+    <script type="text/javascript" src="../../../static/jquery/jquery-3.0.0.min.js"></script>
+</head>
+<body>
+    <h1 align="center">dhc security 默认登录页面</h1>
+    <form action="/api/login" method="post">
+        <table>
+            <tr>
+                <td>用户名：</td>
+                <td><input type="text" name="username"></td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td>验证码：</td>
+                <td><input type="text" name="kaptcha"></td>
+                <td>
+                    <img id="kaptchaImg" src="/api/kaptcha">
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="登录"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+<script type="text/javascript">
+    $("#kaptchaImg").click(function () {
+        this.src = "/api/kaptcha?random=" + Math.random();
+    });
+</script>
+</html>
